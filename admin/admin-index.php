@@ -1,3 +1,12 @@
+<?php
+include('admin-session.php');
+
+if ($_SESSION['login'] !== true) {
+    echo "<script>alert('Please login to your account to continue');
+        window.location.href='admin-login.php';
+        </script>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +33,7 @@
                             Admin
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Log out</a></li>
+                            <li><a class="dropdown-item" href="admin-logout.php">Log out</a></li>
                         </ul>
                     </li>
                 </div>
