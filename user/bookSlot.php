@@ -2,6 +2,8 @@
 include('../config.php');
 include('session.php');
 if ($_SESSION['login'] !== true) header("location:../dashboard.php");
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +12,7 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AD Publicize-View Slots</title>
+    <title>AD Publicize-Book Slots</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="style.css" />
@@ -83,7 +85,7 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                         Rate: 500/-
                     </p>
                     <div class="d-flex justify-content-center mb-3">
-                        <a type="button" class="btn btn-primary" href="#">Book Now</a>
+                        <a type="button" class="btn btn-primary" href="booking_details.php">Book Now</a>
                     </div>
                 </div>
                 <div class="col-4 bg-light border">
@@ -168,8 +170,8 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                 <div class="col bg-light border">
                     <div class="pt-5 mt-5 mb-5 pb-5">
                         <div class="mt-5 pt-5">
-                            <p class="justify-content-center d-flex">Size(in inch): 3.15 x 3.65<br>
-                                Rate: 500/-
+                            <p class="justify-content-center d-flex">Size(in inch): 12.7 x 7.35<br>
+                                Rate: 6000/-
                             </p>
                             <div class="d-flex justify-content-center mt-5 pt-5">
                                 <a type="button" class="btn btn-primary" href="#">Book Now</a>
@@ -223,8 +225,8 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                 <div class="col bg-light border">
                     <div class="pt-5 mt-5 mb-5 pb-5">
                         <div class="mt-5 pt-5">
-                            <p class="justify-content-center d-flex">Size(in inch): 3.15 x 3.65<br>
-                                Rate: 500/-
+                            <p class="justify-content-center d-flex">Size(in inch): 12.7 x 7.35<br>
+                                Rate: 6000/-
                             </p>
                             <div class="d-flex justify-content-center mb-5 mt-5">
                                 <a type="button" class="btn btn-primary" href="#">Book Now</a>

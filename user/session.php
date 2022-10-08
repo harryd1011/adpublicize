@@ -40,14 +40,8 @@
         $city = "";
         $pincode = "";
     }
-    // $row2 = mysqli_fetch_object($req);
-
-    // $resiadd = $row2->resiadd;
-    // $officeadd = $row2->officeadd;
-    // $officeCno = $row2->officeCno;
-    // $area = $row2->area;
-    // $city = $row2->city;
-    // $pincode = $row2->pincode;
+    
+    
     
 
 ?>

@@ -1,3 +1,32 @@
+<?php
+include('../config.php');
+include('admin-session.php');
+
+if ($_SESSION['admin_login'] !== true) {
+    echo "<script>alert('Please login to your account to continue');
+        window.location.href='admin-login.php';
+        </script>";
+}
+if (isset($_POST["submit"])) {
+    $Page_No = $_POST["Page_No"];
+    $Position = $_POST["Position"];
+    $Size = $_POST["Size"];
+    $Prize = $_POST["Prize"];
+    $Status = $_POST["Status"];
+    $Publish_Date = $_POST["Publish_Date"];
+
+    $insert = mysqli_query($conn, "INSERT INTO slot_details(Page_No,Position,Size,Prize,Status,Publish_Date) VALUES('$Page_No','$Position','$Size','$Prize','$Status','$Publish_Date')");
+
+    if ($insert) {
+        echo "<script>alert('Information updated successfully');
+        window.location.href='page_form.php';
+        </script>";
+    } else {
+        echo "<script>alert('Error in Registering Data, Try Again')</script>";
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,7 +129,7 @@
                                                 </h4>
                                             </div>
                                             <div class="col d-flex justify-content-end">
-                                                <button type="submit" class="btn btn-primary" name="update">Submit</button>
+                                                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                                             </div>
                                         </div>
                                         <hr>
@@ -111,12 +140,12 @@
                                             </div>
                                             <div class="col-6">
                                                 <div class="input-group mb-3">
-                                                    <select class="form-select" id="inputGroupSelect02">
+                                                    <select class="form-select" id="inputGroupSelect02" name="Page_No" required>
                                                         <option selected>Choose...</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
+                                                        <option value="1">Page-1 Side-1</option>
+                                                        <option value="2">Page-1 Side-2</option>
+                                                        <option value="3">Page-2 Side-1</option>
+                                                        <option value="4">Page-2 Side-2</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -127,7 +156,7 @@
                                             </div>
                                             <div class="col-6">
                                                 <div class="input-group mb-3">
-                                                    <select class="form-select" id="inputGroupSelect02">
+                                                    <select class="form-select" id="inputGroupSelect02" name="Position" required>
                                                         <option selected>Choose...</option>
                                                         <option value="1">Top-left corner</option>
                                                         <option value="2">Top-right corner</option>
@@ -136,6 +165,10 @@
                                                         <option value="5">center-mid </option>
                                                         <option value="6">center-left corner </option>
                                                         <option value="7">Banner-2</option>
+                                                        <option value="8">Top Banner</option>
+                                                        <option value="9">Bottom left A4</option>
+                                                        <option value="10">Bottom right A4</option>
+
                                                     </select>
                                                 </div>
                                             </div>
@@ -146,12 +179,12 @@
                                             </div>
                                             <div class="col-6">
                                                 <div class="input-group mb-3">
-                                                    <select class="form-select" id="inputGroupSelect02">
+                                                    <select class="form-select" id="inputGroupSelect02" name="Size" required>
                                                         <option selected>Choose...</option>
                                                         <option value="1">12.7 x 7.35</option>
                                                         <option value="2">6.3 x 7.35</option>
                                                         <option value="3">6.3 x 3.35</option>
-                                                        <option value="4">3.15 x 1.75</option>
+                                                        <option value="4">3.15 x 3.65</option>
 
                                                     </select>
                                                 </div>
@@ -163,7 +196,7 @@
                                                 <p>Prize: </p>
                                             </div>
                                             <div class="col-6">
-                                                <input id="" type="number" placeholder="Enter prize" class="form-control" name="prize" required>
+                                                <input id="" type="number" placeholder="Enter prize" class="form-control" name="Prize" required>
                                             </div>
                                         </div>
 
@@ -173,10 +206,9 @@
                                             </div>
                                             <div class="col-6">
                                                 <div class="input-group mb-3">
-                                                    <select class="form-select" id="inputGroupSelect02">
-                                                        <option selected>Choose...</option>
-                                                        <option value="1">Availabel</option>
-                                                        <option value="2">Unavailable</option>
+                                                    <select class="form-select" id="inputGroupSelect02" name="Status" required>
+                                                        <option selected>Available</option>
+                                                        <option value="1">Unavailabel</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -187,11 +219,9 @@
                                                 <p>Publish date: </p>
                                             </div>
                                             <div class="col-6">
-                                                <input id="" type="date" placeholder="Select a date" class="form-control" name="date" required>
+                                                <input id="" type="date" placeholder="Select a date" class="form-control" name="Publish_Date" required>
                                             </div>
                                         </div>
-
-
                                     </form>
                                 </div>
                             </div>

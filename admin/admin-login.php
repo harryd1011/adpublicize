@@ -15,7 +15,7 @@ if (isset($_POST["login"])) {
 
         $row = mysqli_fetch_assoc($result);
         if ($password == $row['password']) {
-            $_SESSION['login'] = true;
+            $_SESSION['admin_login'] = true;
             $_SESSION['logadmin'] = $username;
 
             echo "<script>alert('Logged in Successfully');
