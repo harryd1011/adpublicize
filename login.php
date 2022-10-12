@@ -18,8 +18,16 @@ if (isset($_POST["login_btn"])) {
 
         $row = mysqli_fetch_assoc($result);
         if ($password == $row['password']) {
-            $_SESSION['login'] = true;
+            // Session login declared for logout
+            $_SESSION['login'] = true;   
+
+            // Session loguser declared for fetching active users information 
             $_SESSION['loguser'] = $Email;
+
+            // Session page_no and position declared for fetching details of slots from slot_details table
+            $_SESSION["Page_No"] = "";
+            $_SESSION["Position"] = "";
+
             echo "<script>alert('Logged in Successfully');
             window.location.href='user/userhome.php';
             </script>";

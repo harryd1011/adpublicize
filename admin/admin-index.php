@@ -59,13 +59,10 @@ if ($_SESSION['admin_login'] !== true) {
                         <div class="container mt-3">
                             <ul class="nav flex-column">
                                 <li class="nav-item ">
-                                    <a class="nav-link text-white" href="page_form.php">Page form</a>
+                                    <a class="nav-link text-white" href="page_form.php">Page Allotment form</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="#">Link</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="#">Link</a>
+                                    <a class="nav-link text-white" href="#">Page Update form</a>
                                 </li>
                             </ul>
                         </div>
@@ -82,13 +79,10 @@ if ($_SESSION['admin_login'] !== true) {
                         <div class="container mt-3">
                             <ul class="nav flex-column">
                                 <li class="nav-item ">
-                                    <a class="nav-link text-white" href="#">Table 1</a>
+                                    <a class="nav-link text-white" href="#">Request acceptance</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="#">Link</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="#">Link</a>
+                                    <a class="nav-link text-white" href="#">Page Allotted to users</a>
                                 </li>
                             </ul>
                         </div>

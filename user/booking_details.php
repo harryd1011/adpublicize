@@ -133,7 +133,7 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                                         <p>Page No: </p>
                                     </div>
                                     <div class="col-6">
-                                        <input name="page" id="" value="" class="form-control">
+                                        <input name="page" id="" value="<?php echo $Page_No; ?>" class="form-control">
                                     </div>
                                 </div>
 
@@ -142,7 +142,7 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                                         <p>Size: </p>
                                     </div>
                                     <div class="col-6">
-                                        <input name="page" id="" value="" class="form-control">
+                                        <input name="page" id="" value="<?php echo $Size; ?>" class="form-control">
                                     </div>
                                 </div>
 
@@ -151,7 +151,7 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                                         <p>Position: </p>
                                     </div>
                                     <div class="col-6">
-                                        <input name="page" id="" value="" class="form-control">
+                                        <input name="page" id="" value="<?php echo $Position; ?>" class="form-control">
                                     </div>
                                 </div>
 
@@ -160,7 +160,7 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                                         <p>Prize: </p>
                                     </div>
                                     <div class="col-6">
-                                        <input name="page" id="" value="" class="form-control">
+                                        <input name="page" id="" value="<?php echo $Price; ?>" class="form-control">
                                     </div>
                                 </div>
 

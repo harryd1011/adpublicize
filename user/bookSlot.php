@@ -3,6 +3,31 @@ include('../config.php');
 include('session.php');
 if ($_SESSION['login'] !== true) header("location:../dashboard.php");
 
+if (isset($_POST["book_btn"])) {
+    $Page_No = $_POST["Page_No"];
+    $Position = $_POST["Position"];
+
+    // For checking status
+    $check =  mysqli_query($conn, "SELECT * FROM slot_details WHERE Page_No='$Page_No' and Position='$Position'");
+
+    $num =  mysqli_num_rows($check);
+
+    if ($num) {
+        $row = mysqli_fetch_assoc($check);
+        if ($row['Status'] == 'Available') {
+            $_SESSION['Page_No'] = $Page_No;
+            $_SESSION['Position'] = $Position;
+            echo "<script>alert('Slot available. Continue your booking');
+            window.location.href='booking_details.php';
+            </script>";
+        } else {
+            echo "<script>alert('Slot unavailable. Please check any available.')</script>";
+        }
+    } else {
+        echo "<script>alert('We are facing some issue please try later.')</script>";
+    }
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -79,15 +104,22 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
             </h4>
 
             <div class="row pt-3 mx-5">
+
                 <div class="col-4 bg-light border">
                     <p class="justify-content-center d-flex pt-4 mt-4">
                         Size(in inch): 3.15 x 3.65<br>
                         Rate: 500/-
                     </p>
-                    <div class="d-flex justify-content-center mb-3">
-                        <a type="button" class="btn btn-primary" href="booking_details.php">Book Now</a>
-                    </div>
+                    <form method="post">
+                        <div class="d-flex justify-content-center mb-3">
+                            <input type="hidden" value="Page-1_Side-1" name="Page_No">
+                            <input type="hidden" value="Top-left_corner" name="Position">
+
+                            <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                        </div>
+                    </form>
                 </div>
+
                 <div class="col-4 bg-light border">
                     <p class="justify-content-center d-flex pt-4 mt-4">
                         Bazar Group
@@ -98,9 +130,14 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                         Size(in inch): 3.15 x 3.65<br>
                         Rate: 500/-
                     </p>
-                    <div class="d-flex justify-content-center mb-3">
-                        <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                    </div>
+                    <form method="post">
+                        <div class="d-flex justify-content-center mb-3">
+                            <input type="hidden" value="Page-1_Side-1" name="Page_No">
+                            <input type="hidden" value="Top-right_corner" name="Position">
+
+                            <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -110,9 +147,14 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                         Size(in inch): 6.3 x 3.35<br>
                         Rate: 1700/-
                     </p>
-                    <div class="d-flex justify-content-center mb-3">
-                        <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                    </div>
+                    <form method="post">
+                        <div class="d-flex justify-content-center mb-3">
+                            <input type="hidden" value="Page-1_Side-1" name="Page_No">
+                            <input type="hidden" value="Banner-1" name="Position">
+
+                            <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -122,27 +164,42 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                         Size(in inch): 3.15 x 3.65<br>
                         Rate: 500/-
                     </p>
-                    <div class="d-flex justify-content-center mb-3">
-                        <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                    </div>
+                    <form method="post">
+                        <div class="d-flex justify-content-center mb-3">
+                            <input type="hidden" value="Page-1_Side-1" name="Page_No">
+                            <input type="hidden" value="center-right_corner" name="Position">
+
+                            <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-4 bg-light border">
                     <p class="justify-content-center d-flex pt-5 mt-5">
                         Size(in inch): 3.15 x 3.65<br>
                         Rate: 500/-
                     </p>
-                    <div class="d-flex justify-content-center mb-3">
-                        <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                    </div>
+                    <form method="post">
+                        <div class="d-flex justify-content-center mb-3">
+                            <input type="hidden" value="Page-1_Side-1" name="Page_No">
+                            <input type="hidden" value="center-mid" name="Position">
+
+                            <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-4 bg-light border">
                     <p class="justify-content-center d-flex pt-5 mt-5">
                         Size(in inch): 3.15 x 3.65<br>
                         Rate: 500/-
                     </p>
-                    <div class="d-flex justify-content-center mb-3">
-                        <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                    </div>
+                    <form method="post">
+                        <div class="d-flex justify-content-center mb-3">
+                            <input type="hidden" value="Page-1_Side-1" name="Page_No">
+                            <input type="hidden" value="center-left_corner" name="Position">
+
+                            <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -152,9 +209,14 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                         Size(in inch): 6.3 x 3.35<br>
                         Rate: 1700/-
                     </p>
-                    <div class="d-flex justify-content-center mb-3">
-                        <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                    </div>
+                    <form method="post">
+                        <div class="d-flex justify-content-center mb-3">
+                            <input type="hidden" value="Page-1_Side-1" name="Page_No">
+                            <input type="hidden" value="Banner-2" name="Position">
+
+                            <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -173,9 +235,14 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                             <p class="justify-content-center d-flex">Size(in inch): 12.7 x 7.35<br>
                                 Rate: 6000/-
                             </p>
-                            <div class="d-flex justify-content-center mt-5 pt-5">
-                                <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                            </div>
+                            <form method="post">
+                                <div class="d-flex justify-content-center mt-5 pt-5">
+                                    <input type="hidden" value="Page-1_Side-2" name="Page_No">
+                                    <input type="hidden" value="Top_Banner" name="Position">
+
+                                    <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -188,9 +255,14 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                             <p class="justify-content-center d-flex">Size(in inch): 6.3 x 7.35<br>
                                 Rate: 3200/-
                             </p>
-                            <div class="d-flex justify-content-center mt-5">
-                                <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                            </div>
+                            <form method="post">
+                                <div class="d-flex justify-content-center mt-5">
+                                    <input type="hidden" value="Page-1_Side-2" name="Page_No">
+                                    <input type="hidden" value="Bottom-left_A4" name="Position">
+
+                                    <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -200,9 +272,14 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                             <p class="justify-content-center d-flex">Size(in inch): 6.3 x 7.35<br>
                                 Rate: 3200/-
                             </p>
-                            <div class="d-flex justify-content-center mt-5">
-                                <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                            </div>
+                            <form method="post">
+                                <div class="d-flex justify-content-center mt-5">
+                                    <input type="hidden" value="Page-1_Side-2" name="Page_No">
+                                    <input type="hidden" value="Bottom-right_A4" name="Position">
+
+                                    <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
@@ -228,9 +305,14 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                             <p class="justify-content-center d-flex">Size(in inch): 12.7 x 7.35<br>
                                 Rate: 6000/-
                             </p>
-                            <div class="d-flex justify-content-center mb-5 mt-5">
-                                <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                            </div>
+                            <form method="post">
+                                <div class="d-flex justify-content-center mb-5 mt-5">
+                                    <input type="hidden" value="Page-2_Side-2" name="Page_No">
+                                    <input type="hidden" value="Top_Banner" name="Position">
+
+                                    <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -243,9 +325,14 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                             <p class="justify-content-center d-flex">Size(in inch): 6.3 x 7.35<br>
                                 Rate: 3200/-
                             </p>
-                            <div class="d-flex justify-content-center mt-5">
-                                <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                            </div>
+                            <form method="post">
+                                <div class="d-flex justify-content-center mt-5">
+                                    <input type="hidden" value="Page-2_Side-1" name="Page_No">
+                                    <input type="hidden" value="Bottom-left_A4" name="Position">
+
+                                    <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -255,9 +342,14 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                             <p class="justify-content-center d-flex">Size(in inch): 6.3 x 7.35<br>
                                 Rate: 3200/-
                             </p>
-                            <div class="d-flex justify-content-center mb-5 mt-5">
-                                <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                            </div>
+                            <form method="post">
+                                <div class="d-flex justify-content-center mb-5 mt-5">
+                                    <input type="hidden" value="Page-2_Side-1" name="Page_No">
+                                    <input type="hidden" value="Bottom-right_A4" name="Position">
+
+                                    <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
@@ -277,27 +369,42 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                         Size(in inch): 3.15 x 3.65<br>
                         Rate: 500/-
                     </p>
-                    <div class="d-flex justify-content-center">
-                        <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                    </div>
+                    <form method="post">
+                        <div class="d-flex justify-content-center mb-3">
+                            <input type="hidden" value="Page-2_Side-2" name="Page_No">
+                            <input type="hidden" value="Top-left_corner" name="Position">
+
+                            <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-4 bg-light border">
                     <p class="justify-content-center d-flex pt-4 mt-5">
                         Size(in inch): 3.15 x 3.65<br>
                         Rate: 500/-
                     </p>
-                    <div class="d-flex justify-content-center">
-                        <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                    </div>
+                    <form method="post">
+                        <div class="d-flex justify-content-center mb-3">
+                            <input type="hidden" value="Page-2_Side-2" name="Page_No">
+                            <input type="hidden" value="Top-center" name="Position">
+
+                            <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-4 bg-light border">
                     <p class="justify-content-center d-flex pt-4 mt-5">
                         Size(in inch): 3.15 x 3.65<br>
                         Rate: 500/-
                     </p>
-                    <div class="d-flex justify-content-center mb-3">
-                        <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                    </div>
+                    <form method="post">
+                        <div class="d-flex justify-content-center mb-3">
+                            <input type="hidden" value="Page-2_Side-2" name="Page_No">
+                            <input type="hidden" value="Top-right_corner" name="Position">
+
+                            <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -307,9 +414,14 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                         Size(in inch): 6.3 x 3.35<br>
                         Rate: 1700/-
                     </p>
-                    <div class="d-flex justify-content-center mb-3">
-                        <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                    </div>
+                    <form method="post">
+                        <div class="d-flex justify-content-center mb-3">
+                            <input type="hidden" value="Page-2_Side-2" name="Page_No">
+                            <input type="hidden" value="Banner-1" name="Position">
+
+                            <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -319,27 +431,42 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                         Size(in inch): 3.15 x 3.65<br>
                         Rate: 500/-
                     </p>
-                    <div class="d-flex justify-content-center mb-3">
-                        <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                    </div>
+                    <form method="post">
+                        <div class="d-flex justify-content-center mb-3">
+                            <input type="hidden" value="Page-2_Side-2" name="Page_No">
+                            <input type="hidden" value="center-left_corner" name="Position">
+
+                            <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-4 bg-light border">
                     <p class="justify-content-center d-flex pt-5 mt-5">
                         Size(in inch): 3.15 x 3.65<br>
                         Rate: 500/-
                     </p>
-                    <div class="d-flex justify-content-center mb-3">
-                        <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                    </div>
+                    <form method="post">
+                        <div class="d-flex justify-content-center mb-3">
+                            <input type="hidden" value="Page-2_Side-2" name="Page_No">
+                            <input type="hidden" value="center-mid" name="Position">
+
+                            <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-4 bg-light border">
                     <p class="justify-content-center d-flex pt-5 mt-5">
                         Size(in inch): 3.15 x 3.65<br>
                         Rate: 500/-
                     </p>
-                    <div class="d-flex justify-content-center mb-3">
-                        <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                    </div>
+                    <form method="post">
+                        <div class="d-flex justify-content-center mb-3">
+                            <input type="hidden" value="Page-2_Side-2" name="Page_No">
+                            <input type="hidden" value="center-right_corner" name="Position">
+
+                            <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -349,9 +476,14 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
                         Size(in inch): 6.3 x 3.35<br>
                         Rate: 1700/-
                     </p>
-                    <div class="d-flex justify-content-center mb-3">
-                        <a type="button" class="btn btn-primary" href="#">Book Now</a>
-                    </div>
+                    <form method="post">
+                        <div class="d-flex justify-content-center mb-3">
+                            <input type="hidden" value="Page-2_Side-2" name="Page_No">
+                            <input type="hidden" value="Banner-2" name="Position">
+
+                            <button type="submit" class="btn btn-primary" name="book_btn">Book Now</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 

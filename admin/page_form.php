@@ -11,11 +11,11 @@ if (isset($_POST["submit"])) {
     $Page_No = $_POST["Page_No"];
     $Position = $_POST["Position"];
     $Size = $_POST["Size"];
-    $Prize = $_POST["Prize"];
+    $Price = $_POST["Price"];
     $Status = $_POST["Status"];
     $Publish_Date = $_POST["Publish_Date"];
 
-    $insert = mysqli_query($conn, "INSERT INTO slot_details(Page_No,Position,Size,Prize,Status,Publish_Date) VALUES('$Page_No','$Position','$Size','$Prize','$Status','$Publish_Date')");
+    $insert = mysqli_query($conn, "INSERT INTO slot_details(Page_No,Position,Size,Price,Status,Publish_Date) VALUES('$Page_No','$Position','$Size','$Price','$Status','$Publish_Date')");
 
     if ($insert) {
         echo "<script>alert('Information updated successfully');
@@ -47,11 +47,16 @@ if (isset($_POST["submit"])) {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
-                <ul class="navbar-nav">
+                <div class="btn-group">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Welcome,admin</a>
+                        <a href="#" class="btn dropdown-toggle text-white" data-bs-toggle="dropdown" aria-expanded="false">
+                            Admin
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="admin-logout.php">Log out</a></li>
+                        </ul>
                     </li>
-                </ul>
+                </div>
             </div>
         </div>
     </nav>
@@ -60,7 +65,7 @@ if (isset($_POST["submit"])) {
         <section class="bg-dark col-md-2 col-4" style="height:100vh;">
             <div class=" navbar navbar-dark">
                 <div class="container-fluid sticky-top">
-                    <a class="navbar-brand">Admin</a>
+                    <a class="navbar-brand" href="admin-index.php">Admin</a>
                 </div>
             </div>
             <div id="accordian">
@@ -74,13 +79,10 @@ if (isset($_POST["submit"])) {
                         <div class="container mt-3">
                             <ul class="nav flex-column">
                                 <li class="nav-item ">
-                                    <a class="nav-link text-white" href="page_form.php">Page form</a>
+                                    <a class="nav-link text-white" href="page_form.php">Page Allotment form</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="#">Link</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="#">Link</a>
+                                    <a class="nav-link text-white" href="#">Page Update form</a>
                                 </li>
                             </ul>
                         </div>
@@ -97,13 +99,10 @@ if (isset($_POST["submit"])) {
                         <div class="container mt-3">
                             <ul class="nav flex-column">
                                 <li class="nav-item ">
-                                    <a class="nav-link text-white" href="#">Table 1</a>
+                                    <a class="nav-link text-white" href="#">Request acceptance</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="#">Link</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="#">Link</a>
+                                    <a class="nav-link text-white" href="#">Page Allotted to users</a>
                                 </li>
                             </ul>
                         </div>
@@ -142,10 +141,10 @@ if (isset($_POST["submit"])) {
                                                 <div class="input-group mb-3">
                                                     <select class="form-select" id="inputGroupSelect02" name="Page_No" required>
                                                         <option selected>Choose...</option>
-                                                        <option value="1">Page-1 Side-1</option>
-                                                        <option value="2">Page-1 Side-2</option>
-                                                        <option value="3">Page-2 Side-1</option>
-                                                        <option value="4">Page-2 Side-2</option>
+                                                        <option value="Page-1_Side-1">Page-1_Side-1</option>
+                                                        <option value="Page-1_Side-2">Page-1_Side-2</option>
+                                                        <option value="Page-2_Side-1">Page-2_Side-1</option>
+                                                        <option value="Page-2_Side-2">Page-2_Side-2</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -158,16 +157,17 @@ if (isset($_POST["submit"])) {
                                                 <div class="input-group mb-3">
                                                     <select class="form-select" id="inputGroupSelect02" name="Position" required>
                                                         <option selected>Choose...</option>
-                                                        <option value="1">Top-left corner</option>
-                                                        <option value="2">Top-right corner</option>
-                                                        <option value="3">Banner-1</option>
-                                                        <option value="4">center-right corner</option>
-                                                        <option value="5">center-mid </option>
-                                                        <option value="6">center-left corner </option>
-                                                        <option value="7">Banner-2</option>
-                                                        <option value="8">Top Banner</option>
-                                                        <option value="9">Bottom left A4</option>
-                                                        <option value="10">Bottom right A4</option>
+                                                        <option value="Top-left_corner">Top-left_corner</option>
+                                                        <option value="Top-right_corner">Top-right_corner</option>
+                                                        <option value="Top-right_corner">Top-center</option>
+                                                        <option value="Banner-1">Banner-1</option>
+                                                        <option value="center-right_corner">center-right_corner</option>
+                                                        <option value="center-mid">center-mid </option>
+                                                        <option value="center-left_corner">center-left_corner </option>
+                                                        <option value="Banner-2">Banner-2</option>
+                                                        <option value="Top_Banner">Top_Banner</option>
+                                                        <option value="Bottom-left_A4">Bottom-left_A4</option>
+                                                        <option value="Bottom-right_A4">Bottom-right_A4</option>
 
                                                     </select>
                                                 </div>
@@ -181,10 +181,10 @@ if (isset($_POST["submit"])) {
                                                 <div class="input-group mb-3">
                                                     <select class="form-select" id="inputGroupSelect02" name="Size" required>
                                                         <option selected>Choose...</option>
-                                                        <option value="1">12.7 x 7.35</option>
-                                                        <option value="2">6.3 x 7.35</option>
-                                                        <option value="3">6.3 x 3.35</option>
-                                                        <option value="4">3.15 x 3.65</option>
+                                                        <option value="12.7 x 7.35">12.7 x 7.35</option>
+                                                        <option value="6.3 x 7.35">6.3 x 7.35</option>
+                                                        <option value="6.3 x 3.35">6.3 x 3.35</option>
+                                                        <option value="3.15 x 3.65">3.15 x 3.65</option>
 
                                                     </select>
                                                 </div>
@@ -196,7 +196,7 @@ if (isset($_POST["submit"])) {
                                                 <p>Prize: </p>
                                             </div>
                                             <div class="col-6">
-                                                <input id="" type="number" placeholder="Enter prize" class="form-control" name="Prize" required>
+                                                <input id="" type="number" placeholder="Enter price" class="form-control" name="Price" required>
                                             </div>
                                         </div>
 
@@ -208,7 +208,7 @@ if (isset($_POST["submit"])) {
                                                 <div class="input-group mb-3">
                                                     <select class="form-select" id="inputGroupSelect02" name="Status" required>
                                                         <option selected>Available</option>
-                                                        <option value="1">Unavailabel</option>
+                                                        <option value="Unavailable">Unavailable</option>
                                                     </select>
                                                 </div>
                                             </div>
