@@ -1,7 +1,11 @@
 <?php
-include('../config.php');
 include('session.php');
-if ($_SESSION['login'] !== true) header("location:../dashboard.php");
+if ($_SESSION['login'] !== true) {
+    echo "<script>alert('Please login to your account to continue');
+        window.location.href='../login.php';
+        </script>";
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -17,7 +21,7 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
     <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
+<body style="background-image: url('photos/BookSlot.jpg'); background-size:cover;">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">AD Publicize</a>
@@ -51,127 +55,105 @@ if ($_SESSION['login'] !== true) header("location:../dashboard.php");
     <section>
         <div class="container mt-5">
             <div class="row d-flex justify-content-center">
-                <div class="col col-md-9 col-lg-7">
+                <div class="col col-md-9 col-lg-10">
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body">
-                            <form method="post">
+                            <form action="razorpay-api/pay.php" method="post" accept-charset="utf-8">
                                 <div class="row">
                                     <div class="col">
                                         <h4>
                                             Booking Details
                                         </h4>
                                     </div>
-                                    <div class="col d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-primary" name="submit_details">Submit</button>
-                                    </div>
+
                                 </div>
                                 <hr>
 
                                 <div class="row mt-4">
-                                    <div class="col-6">
+                                    <div class="col-12 col-md-6">
                                         <p>Name: </p>
-                                    </div>
-                                    <div class="col-6">
                                         <input type="hidden" value="<?php echo $id;  ?>" name="regid">
-                                        <input name="name" id="" value="<?php echo $fname . " " . $lname; ?>" class="form-control">
+                                        <input name="name" id="" value="<?php echo $fname . " " . $lname; ?>" class="form-control" required>
                                     </div>
-                                </div>
-                                <div class="row mt-4">
-                                    <div class="col-6">
+                                    <div class="col-12 col-md-6">
                                         <p>Email: </p>
-                                    </div>
-                                    <div class="col-6">
-                                        <input name="email" id="" value="<?php echo $emailid; ?>" class="form-control">
+                                        <input name="email" id="" value="<?php echo $emailid; ?>" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
-                                    <div class="col-6">
+                                    <div class="col-12 col-md-6">
                                         <p>Name of Organization: </p>
+                                        <input name="organization" id="" class="form-control" required>
                                     </div>
-                                    <div class="col-6">
-                                        <input name="organization" id="" class="form-control">
+                                    <div class="col-12 col-md-6">
+                                        <p>Contact Number: </p>
+                                        <input name="contact" id="" value="<?php echo $contactno; ?>" class="form-control" required>
                                     </div>
                                 </div>
 
                                 <div class="row mt-4">
-                                    <div class="col-6">
-                                        <p>Contact Number: </p>
-                                    </div>
-                                    <div class="col-6">
-                                        <input name="contact" id="" value="<?php echo $contactno; ?>" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="row mt-4">
-                                    <div class="col-6">
+                                    <div class="col-12 col-md-6">
                                         <p>Office Contact Number: </p>
+                                        <input name="office_contact" id="" value="<?php echo $officeCno; ?>" class="form-control" required>
                                     </div>
-                                    <div class="col-6">
-                                        <input name="office_contact" id="" value="<?php echo $officeCno; ?>" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="row mt-4">
-                                    <div class="col-6">
+                                    <div class="col-12 col-md-6">
                                         <p>Address: </p>
-                                    </div>
-                                    <div class="col-6">
-                                        <input name="address" id="" value="<?php echo $resiadd; ?>" class="form-control">
+                                        <input name="address" id="" value="<?php echo $resiadd; ?>" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
-                                    <div class="col-6">
+                                    <div class="col-12 col-md-6">
                                         <p>Office Address: </p>
+                                        <input name="office_address" id="" value="<?php echo $officeadd; ?>" class="form-control" required>
                                     </div>
-                                    <div class="col-6">
-                                        <input name="address" id="" value="<?php echo $officeadd; ?>" class="form-control">
+                                    <div class="col-12 col-md-6">
+                                        <p>Page No: </p>
+                                        <input name="Page_No" id="" value="<?php echo $Page_No; ?>" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-12 col-md-6">
+                                        <p>Size: </p>
+                                        <input name="Size" id="" value="<?php echo $Size; ?> (in inch)" class="form-control" required>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <p>Position: </p>
+                                        <input name="Position" id="" value="<?php echo $Position; ?>" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-12 col-md-6">
+                                        <p>Price: </p>
+                                        <input name="Price" id="" value="Rs. <?php echo number_format($Price); ?> /-" class="form-control" required>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <p>Date of Publish: </p>
+                                        <input name="Publish_Date" id="" value="<?php echo $Publish_Date; ?>" class="form-control" required>
                                     </div>
                                 </div>
 
                                 <!-- Fetching left -->
 
                                 <div class="row mt-4">
-                                    <div class="col-6">
-                                        <p>Page No: </p>
+                                    <div class="col-12 col-md-10">
+                                        <p>Enter the Content of advertisement: </p>
+                                        <input name="Ad_Content" id="" value="" class="form-control" required>
                                     </div>
-                                    <div class="col-6">
-                                        <input name="page" id="" value="<?php echo $Page_No; ?>" class="form-control">
-                                    </div>
+
                                 </div>
 
-                                <div class="row mt-4">
-                                    <div class="col-6">
-                                        <p>Size: </p>
-                                    </div>
-                                    <div class="col-6">
-                                        <input name="page" id="" value="<?php echo $Size; ?>" class="form-control">
-                                    </div>
+                                <div class="form-check mt-4">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" required>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        <b>You agree to the Terms & Condition that once the booking is done it won't be cancelled and the payment done will be non-refundable. For further inquiry you may contact the authorities.</b>
+                                    </label>
                                 </div>
 
-                                <div class="row mt-4">
-                                    <div class="col-6">
-                                        <p>Position: </p>
-                                    </div>
-                                    <div class="col-6">
-                                        <input name="page" id="" value="<?php echo $Position; ?>" class="form-control">
-                                    </div>
+                                <div class="form group mt-5">
+                                    <input type="hidden" value="<?php echo $Price/2;  ?>" name="advance_Payment">
+                                    <input type="submit" class="btn btn-primary" name="payment" value="Click to pay: Rs. <?= $Price/2; ?>/-">
                                 </div>
 
-                                <div class="row mt-4">
-                                    <div class="col-6">
-                                        <p>Prize: </p>
-                                    </div>
-                                    <div class="col-6">
-                                        <input name="page" id="" value="<?php echo $Price; ?>" class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="row mt-4">
-                                    <div class="col-6">
-                                        <p>Image: </p>
-                                    </div>
-                                    <div class="col-6">
-                                        <input name="page" id="" value="" class="form-control">
-                                    </div>
-                                </div>
                             </form>
                         </div>
                     </div>

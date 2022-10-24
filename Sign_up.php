@@ -17,7 +17,9 @@ if (isset($_POST["btnsubmit"])) {
 
     $row = mysqli_num_rows($result);
     if ($row >= 1) {
-        echo "<script>alert('Email Id or Phone number is Already Registered')</script>";
+        echo "<script>alert('Email Id or Phone number is Already Registered. Please login directly.');
+        window.location.href='login.php';
+        </script>";
     } else {
 
         $insert = mysqli_query($conn, "INSERT INTO registration(fname,lname,emailid,password,contactno) VALUES('$fname','$lname','$emailid','$encrypt_password','$contactno')");
@@ -71,7 +73,7 @@ if (isset($_POST["btnsubmit"])) {
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-md-6 col-sm-12 px-0">
-                    <img src="photos/Image-6.jpg" class="img-fluid d-block w-100" alt="">
+                    <img src="photos/Signup_image.jpg" class="img-fluid d-block w-100" alt="">
                 </div>
                 <div class="col-md-1 col-sm-0">
 

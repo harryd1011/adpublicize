@@ -1,5 +1,4 @@
 <?php
-include('../config.php');
 include('admin-session.php');
 
 if ($_SESSION['admin_login'] !== true) {
@@ -15,14 +14,21 @@ if (isset($_POST["submit"])) {
     $Status = $_POST["Status"];
     $Publish_Date = $_POST["Publish_Date"];
 
-    $insert = mysqli_query($conn, "INSERT INTO slot_details(Page_No,Position,Size,Price,Status,Publish_Date) VALUES('$Page_No','$Position','$Size','$Price','$Status','$Publish_Date')");
+    $slot_result = mysqli_query($conn, "SELECT * from slot_details_1 WHERE Page_No='$Page_No' and Position='$Position' and Publish_Date='$Publish_Date' ");
 
-    if ($insert) {
-        echo "<script>alert('Information updated successfully');
+    $slot_row = mysqli_num_rows($slot_result);
+    if ($slot_row >= 1) {
+        echo "<script>alert('Slot details of this Position at the page number is already alloted. Please go to update form to update the details.')</script>";
+    } else {
+        $insert = mysqli_query($conn, "INSERT INTO slot_details_1(Page_No,Position,Size,Price,Status,Publish_Date) VALUES('$Page_No','$Position','$Size','$Price','$Status','$Publish_Date')");
+
+        if ($insert) {
+            echo "<script>alert('Information updated successfully');
         window.location.href='page_form.php';
         </script>";
-    } else {
-        echo "<script>alert('Error in Registering Data, Try Again')</script>";
+        } else {
+            echo "<script>alert('Error in Registering Data, Try Again')</script>";
+        }
     }
 }
 
@@ -37,6 +43,8 @@ if (isset($_POST["submit"])) {
     <title>AD- Publicize</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -46,7 +54,7 @@ if (isset($_POST["submit"])) {
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+            <div class="collapse navbar-collapse justify-content-end pe-4" id="collapsibleNavbar">
                 <div class="btn-group">
                     <li class="nav-item">
                         <a href="#" class="btn dropdown-toggle text-white" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,6 +62,7 @@ if (isset($_POST["submit"])) {
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="admin-logout.php">Log out</a></li>
+                            <li><a class="dropdown-item" href="change_admin_password.php">Update Details</a></li>
                         </ul>
                     </li>
                 </div>
@@ -65,7 +74,7 @@ if (isset($_POST["submit"])) {
         <section class="bg-dark col-md-2 col-4" style="height:100vh;">
             <div class=" navbar navbar-dark">
                 <div class="container-fluid sticky-top">
-                    <a class="navbar-brand" href="admin-index.php">Admin</a>
+                    <a class="navbar-brand" href="admin-index.php">Admin Panel</a>
                 </div>
             </div>
             <div id="accordian">
@@ -82,7 +91,7 @@ if (isset($_POST["submit"])) {
                                     <a class="nav-link text-white" href="page_form.php">Page Allotment form</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="#">Page Update form</a>
+                                    <a class="nav-link text-white" href="page_update_form.php">Page Update form</a>
                                 </li>
                             </ul>
                         </div>
@@ -113,13 +122,13 @@ if (isset($_POST["submit"])) {
             </div>
         </section>
 
-        <div class="col-md-10 col-7">
+        <div class="col-md-10 col-7" style="background-image: url('https://www.ivins.com/wp-content/uploads/2016/05/professional-backgrounds-for-websites3-2.jpg'); background-size:cover;">
             <section>
-                <div class="container mt-5">
+                <div class="container mt-5 pt-5">
                     <div class="row d-flex justify-content-center">
                         <div class="col col-md-9 col-lg-7">
-                            <div class="card" style="border-radius: 15px;">
-                                <div class="card-body">
+                            <div class="card shadow-lg" style="border-radius: 15px;">
+                                <div class="card-body opacity-100">
                                     <form method="post">
                                         <div class="row">
                                             <div class="col">
@@ -159,7 +168,7 @@ if (isset($_POST["submit"])) {
                                                         <option selected>Choose...</option>
                                                         <option value="Top-left_corner">Top-left_corner</option>
                                                         <option value="Top-right_corner">Top-right_corner</option>
-                                                        <option value="Top-right_corner">Top-center</option>
+                                                        <option value="Top-center">Top-center</option>
                                                         <option value="Banner-1">Banner-1</option>
                                                         <option value="center-right_corner">center-right_corner</option>
                                                         <option value="center-mid">center-mid </option>

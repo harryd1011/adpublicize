@@ -1,5 +1,4 @@
 <?php
-include('../config.php');
 include('session.php');
 
 $update = "";
@@ -18,7 +17,7 @@ if(isset($_POST["update"])){
     $city = $_POST['city'];
     $pincode = $_POST['pin'];
 
-    $update = "UPDATE communication SET resiadd='$resiadd', officeadd='$officeadd', officeCno='$officeCno', area='$area', city='$city', pincode='$pincode' where regid='$id'";
+    $update = "UPDATE communication_1 SET resiadd='$resiadd', officeadd='$officeadd', officeCno='$officeCno', area='$area', city='$city', pincode='$pincode' where regid='$id'";
 
     if(mysqli_query($conn,$update)){
         echo "<script>alert('Updated Successfully');
@@ -43,7 +42,7 @@ if(isset($_POST["update"])){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body>
+<body style="background-image: url('photos/User_background.jpg'); background-size:cover;">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">AD Publicize</a>
@@ -75,7 +74,7 @@ if(isset($_POST["update"])){
     </nav>
 
     <section>
-        <div class="container mt-3">
+        <div class="container mt-5">
             <div class="row d-flex justify-content-center">
                 <div class="col">
                     <div class="card" style="border-radius: 15px;">
@@ -91,7 +90,7 @@ if(isset($_POST["update"])){
                                     </div>
                                     <div class="col-md-6 col-sm-12">
                                         <input type="hidden" value="<?php echo $id;  ?>" name="regid">
-                                        <input name="resi_add" id="" value="<?php echo $resiadd; ?>" class="form-control">
+                                        <input name="resi_add" id="" value="<?php echo $resiadd; ?>" class="form-control" required>
 
                                     </div>
                                 </div>
@@ -101,7 +100,7 @@ if(isset($_POST["update"])){
                                         <h5>Office Address:</h5>
                                     </div>
                                     <div class="col-md-6 col-12">
-                                        <input name="off_add" id="" value="<?php echo $officeadd; ?>" class="form-control">
+                                        <input name="off_add" id="" value="<?php echo $officeadd; ?>" class="form-control" required>
                     
                                     </div>
                                 </div>
@@ -111,7 +110,7 @@ if(isset($_POST["update"])){
                                         <h5>Office Contact No.:</h5>
                                     </div>
                                     <div class="col-md-6 col-12">
-                                    <input name="off_contact" id="" value="<?php echo $officeCno; ?>" class="form-control" pattern="^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$">
+                                    <input name="off_contact" id="" value="<?php echo $officeCno; ?>" class="form-control" pattern="^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$" required>
                                     </div>
                                 </div>
 
@@ -120,7 +119,7 @@ if(isset($_POST["update"])){
                                         <h5>Area:</h5>
                                     </div>
                                     <div class="col-md-6 col-12">
-                                    <input name="area" id="" value="<?php echo $area; ?>" class="form-control">
+                                    <input name="area" id="" value="<?php echo $area; ?>" class="form-control" required>
                                     </div>
                                 </div>
 
@@ -129,7 +128,7 @@ if(isset($_POST["update"])){
                                         <h5>City:</h5>
                                     </div>
                                     <div class="col-md-6 col-12">
-                                    <input name="city" id="" value="<?php echo $city; ?>" class="form-control">
+                                    <input name="city" id="" value="<?php echo $city; ?>" class="form-control" required>
                                     </div>
                                 </div>
 
@@ -138,7 +137,7 @@ if(isset($_POST["update"])){
                                         <h5>Pincode :</h5>
                                     </div>
                                     <div class="col-md-6 col-12">
-                                    <input name="pin" id="" value="<?php echo $pincode; ?>" class="form-control" pattern="^[1-9]{1}[0-9]{2}\\s{0, 1}[0-9]{3}$">
+                                    <input name="pin" id="" value="<?php echo $pincode; ?>" class="form-control" pattern="^[1-9]{1}[0-9]{2}\\s{0, 1}[0-9]{3}$" required>
                                     </div>
                                 </div>
 

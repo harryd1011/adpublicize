@@ -22,7 +22,7 @@ if (isset($_POST["resp_submit"])) {
     $city = $_POST["city"];
     $pincode = $_POST["pin"];
 
-    $insert = mysqli_query($conn, "INSERT INTO communication(regid,resiadd,officeadd,officeCno,area,city,pincode) VALUES('$regid','$resiadd','$officeadd','$officeCno','$area','$city','$pincode')");
+    $insert = mysqli_query($conn, "INSERT INTO communication_1(regid,resiadd,officeadd,officeCno,area,city,pincode) VALUES('$regid','$resiadd','$officeadd','$officeCno','$area','$city','$pincode')");
 
     if ($insert) {
         echo "<script>alert('Register Successfully');
@@ -48,7 +48,7 @@ if (isset($_POST["resp_submit"])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body>
+<body style="background-image: url('photos/User_background.jpg'); background-size:cover;">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">AD Publicize</a>
@@ -80,7 +80,7 @@ if (isset($_POST["resp_submit"])) {
     </nav>
 
     <section>
-        <div class="container mt-3">
+        <div class="container mt-5">
             <div class="row d-flex justify-content-center">
                 <div class="col">
                     <div class="card" style="border-radius: 15px;">
@@ -96,7 +96,7 @@ if (isset($_POST["resp_submit"])) {
                                     </div>
                                     <div class="col-md-6 col-sm-12">
                                         <input type="hidden" value="<?php echo $id;  ?>" name="regid">
-                                        <input name="resi_add" id="" class="form-control">
+                                        <input name="resi_add" id="" class="form-control" required>
                                     </div>
                                 </div>
 
@@ -105,7 +105,7 @@ if (isset($_POST["resp_submit"])) {
                                         <h5>Office Address:</h5>
                                     </div>
                                     <div class="col-md-6 col-12">
-                                        <input name="off_add" id="" class="form-control">
+                                        <input name="off_add" id="" class="form-control" required>
                                     </div>
                                 </div>
 
@@ -114,7 +114,7 @@ if (isset($_POST["resp_submit"])) {
                                         <h5>Office Contact No.:</h5>
                                     </div>
                                     <div class="col-md-6 col-12">
-                                        <input type="text" name="off_contact" class="form-control" pattern="^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$">
+                                        <input type="text" name="off_contact" class="form-control" pattern="^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$" required>
                                     </div>
                                 </div>
 
@@ -123,7 +123,7 @@ if (isset($_POST["resp_submit"])) {
                                         <h5>Area:</h5>
                                     </div>
                                     <div class="col-md-6 col-12">
-                                        <input type="text" name="area" class="form-control">
+                                        <input type="text" name="area" class="form-control" required>
                                     </div>
                                 </div>
 
@@ -132,7 +132,7 @@ if (isset($_POST["resp_submit"])) {
                                         <h5>City:</h5>
                                     </div>
                                     <div class="col-md-6 col-12">
-                                        <input type="text" name="city" class="form-control">
+                                        <input type="text" name="city" class="form-control" required>
                                     </div>
                                 </div>
 
@@ -141,7 +141,7 @@ if (isset($_POST["resp_submit"])) {
                                         <h5>Pincode :</h5>
                                     </div>
                                     <div class="col-md-6 col-12">
-                                        <input type="text" name="pin" class="form-control" pattern="^[1-9]{1}[0-9]{2}\\s{0, 1}[0-9]{3}$">
+                                        <input type="text" name="pin" class="form-control" pattern="^[1-9]{1}[0-9]{2}\\s{0, 1}[0-9]{3}$" required>
                                     </div>
                                 </div>
 

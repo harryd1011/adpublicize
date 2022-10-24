@@ -1,25 +1,26 @@
 <?php
-include("../config.php");
+include("../DB_config.php");
 
 session_start();
 
 if (isset($_POST["login"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
+    $encrypt_password= md5($password);
 
-    $result = mysqli_query($conn, "SELECT * FROM admin WHERE username= '$username'");
+    $result = mysqli_query($conn, "SELECT * FROM admin_1 WHERE username= '$username'");
 
     $num = mysqli_num_rows($result);
 
     if ($num == 1) {
 
         $row = mysqli_fetch_assoc($result);
-        if ($password == $row['password']) {
+        if ($encrypt_password == $row['password']) {
             $_SESSION['admin_login'] = true;
             $_SESSION['logadmin'] = $username;
 
             echo "<script>alert('Logged in Successfully');
-            window.location.href='admin-index.php';
+            window.location.href='page_form.php';
             </script>";
         } else {
             echo "<script>alert('Wrong password')</script>";

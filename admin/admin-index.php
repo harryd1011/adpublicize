@@ -20,13 +20,15 @@ if ($_SESSION['admin_login'] !== true) {
 </head>
 
 <body>
+    <!-- NAVBAR STARTS -->
+
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">AD Publicize</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+            <div class="collapse navbar-collapse justify-content-end pe-4" id="collapsibleNavbar">
                 <div class="btn-group">
                     <li class="nav-item">
                         <a href="#" class="btn dropdown-toggle text-white" data-bs-toggle="dropdown" aria-expanded="false">
@@ -34,13 +36,16 @@ if ($_SESSION['admin_login'] !== true) {
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="admin-logout.php">Log out</a></li>
+                            <li><a class="dropdown-item" href="change_admin_password.php">Update Details</a></li>
                         </ul>
                     </li>
                 </div>
             </div>
         </div>
     </nav>
+    <!-- NAVBAR ENDS -->
 
+    <!-- SIDEBAR STARTS -->
     <div class="row ">
         <section class="bg-dark col-md-2 col-4" style="height:100vh;">
             <div class=" navbar navbar-dark">
@@ -62,7 +67,7 @@ if ($_SESSION['admin_login'] !== true) {
                                     <a class="nav-link text-white" href="page_form.php">Page Allotment form</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="#">Page Update form</a>
+                                    <a class="nav-link text-white" href="page_update_form.php">Page Update form</a>
                                 </li>
                             </ul>
                         </div>
@@ -92,6 +97,7 @@ if ($_SESSION['admin_login'] !== true) {
 
             </div>
         </section>
+        <!-- SIDEBAR ENDS -->
 
         <div class="col-md-10 col-8">
             <h4>This is admin Index.</h4>

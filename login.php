@@ -1,5 +1,5 @@
 <?php
-include('config.php');
+include('DB_config.php');
 
 session_start();
 // $Email = $password = "";
@@ -27,6 +27,7 @@ if (isset($_POST["login_btn"])) {
             // Session page_no and position declared for fetching details of slots from slot_details table
             $_SESSION["Page_No"] = "";
             $_SESSION["Position"] = "";
+            $_SESSION["Publish_Date"] = "";
 
             echo "<script>alert('Logged in Successfully');
             window.location.href='user/userhome.php';
@@ -75,11 +76,11 @@ if (isset($_POST["login_btn"])) {
 
     <!-- LOGIN FORM -->
 
-    <section class="Form my-4 mx-5 mt-md-4">
+    <section class="Form my-5 mx-5">
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-md-6 col-sm-12 px-0">
-                    <img src="photos/Image-6.jpg" class="d-block w-100" alt="">
+                    <img src="photos/Login_image.jpg" class="d-block w-100" alt="">
                 </div>
                 <div class="col-md-1 col-sm-0">
 

@@ -20,10 +20,10 @@ if ($_SESSION['login'] !== true) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AD Publicize- User Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>  
 </head>
 
-<body>
+<body style="background-image: url('photos/User_background.jpg'); background-size:cover;">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">AD Publicize</a>
@@ -59,6 +59,7 @@ if ($_SESSION['login'] !== true) {
         <div class="container mt-5">
             <div class="row d-flex justify-content-center">
                 <div class="col col-md-9 col-lg-7">
+
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body">
                             <div class="row">

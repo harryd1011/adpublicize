@@ -18,7 +18,7 @@ if (!empty($_SESSION['logged_in'])) {
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
+<body style="background-image: url('photos/Landing_background.jpg'); background-size:cover;">
   <nav class="navbar sticky-top navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">AD Publicize</a>
@@ -38,67 +38,78 @@ if (!empty($_SESSION['logged_in'])) {
     </div>
   </nav>
   <!-- Carousel -->
-  <div id="demo" class="carousel slide" data-bs-ride="carousel">
-    <!-- Indicators/dots -->
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
-    </div>
+  <div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col col-md-9 col-lg-12">
 
-    <!-- The slideshow/carousel -->
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="photos/Image-1.jpg" alt=" " class="d-block w-100" />
-      </div>
-      <div class="carousel-item">
-        <img src="photos/Image-2.jpg" alt=" " class="d-block w-100" />
-      </div>
-      <div class="carousel-item">
-        <img src="photos/Image-3.jpg" alt=" " class="d-block w-100" />
-      </div>
-      <div class="carousel-item">
-        <img src="photos/Image-4.jpg" alt=" " class="d-block w-100" />
-      </div>
-    </div>
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body">
+            <div id="demo" class="carousel slide" data-bs-ride="carousel">
+              <!-- Indicators/dots -->
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+              </div>
 
-    <!-- Left and right controls/icons -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
-  </div>
+              <!-- The slideshow/carousel -->
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="photos/Image-1.jpg" alt=" " class="d-block w-100" />
+                </div>
+                <div class="carousel-item">
+                  <img src="photos/Image-2.jpg" alt=" " class="d-block w-100" />
+                </div>
+                <div class="carousel-item">
+                  <img src="photos/Image-3.jpg" alt=" " class="d-block w-100" />
+                </div>
+                <div class="carousel-item">
+                  <img src="photos/Image-4.jpg" alt=" " class="d-block w-100" />
+                </div>
+              </div>
 
-  <section class="about-section-padding">
-    <div class="container mt-5">
-      <div class="col-12 mt-4 justify-content-center d-flex">
-        <h2>About our Services</h2>
-      </div>
-      <div class="row">
-        <div class="col-md-1 col-0"></div>
-        <div class="col-md-5 col-12">
-          <div class="about-img">
-            <img src="photos/Image-5.jpg" alt="" class="img-fluid mt-2" />
+              <!-- Left and right controls/icons -->
+              <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </button>
+            </div>
           </div>
         </div>
-        <div class="col-md-1 col-0"></div>
-        <div class="col-md-3 col-12 mt-5">
+      </div>
+    </div>
+  </div>
+
+  <!-- Carousel ends -->
+
+  <!-- About section -->
+    <div class="container mt-5">
+      <div class="mt-4 justify-content-center d-flex text-light">
+        <h2>About our Services</h2>
+      </div>
+      <div class="row mt-5">
+        <div class="col-md-5 col-12">
+          <div class="about-img">
+            <img src="photos/About_image.jpg" alt="" class="img-fluid mt-2" />
+          </div>
+        </div>
+        <div class="col-md-7 col-12 mt-5">
           <div class="about-text">
-            <h4 class="justify-content-center d-flex">
+            <h4 class="d-flex text-light">
               We provide Quality Services
             </h4>
 
-            <p class="mt-5">
+            <p class="mt-5 text-light">
               Our team's main aim is to provide responsive and effective way
               to the users for booking a classified slot for various
               advertisments of their products,brands, various skim
               advertisment and provide those data to be printed in the weekly
               newspaper. We provide different classified slots for
               advertisement and based on the selected slot user has to pay the
-              required amount. It will decrease the amount of tedious work
+              required amount. It will decrease the amount of tedious work that
               needed to be done to grab a slot, the users can book the desired
               slot through online mode itself. The Sample Page for booking the
               desired slot is represented below.
@@ -107,12 +118,11 @@ if (!empty($_SESSION['logged_in'])) {
         </div>
       </div>
     </div>
-  </section>
-
+  <!-- About section ends -->
   <section>
     <div class="container mt-5">
       <div class="row">
-        <div class="col-12 mt-4 justify-content-center d-flex">
+        <div class="col-12 mt-4 justify-content-center d-flex text-light">
           <h2>Sample newspaper</h2>
         </div>
       </div>

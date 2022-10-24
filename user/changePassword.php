@@ -1,5 +1,4 @@
 <?php
-include('../config.php');
 include('session.php');
 
 $update = "";
@@ -51,7 +50,7 @@ if (isset($_POST["update"])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body>
+<body style="background-image: url('photos/User_background.jpg'); background-size:cover;">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">AD Publicize</a>
