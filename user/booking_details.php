@@ -7,6 +7,7 @@ if ($_SESSION['login'] !== true) {
 }
 
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,16 +99,20 @@ if ($_SESSION['login'] !== true) {
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <p>Address: </p>
+                                        <input type="hidden" value="<?php echo $pincode; ?>" name= "pincode">
                                         <input name="address" id="" value="<?php echo $resiadd; ?>" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col-12 col-md-6">
                                         <p>Office Address: </p>
+                                        <input type="hidden" value="<?php echo $area?>" name="area">
+                                        <input type="hidden" value="<?php echo $city?>" name="city">
                                         <input name="office_address" id="" value="<?php echo $officeadd; ?>" class="form-control" required>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <p>Page No: </p>
+                                        <input type="hidden" value="<?php echo $page_id;  ?>" name="page_id">
                                         <input name="Page_No" id="" value="<?php echo $Page_No; ?>" class="form-control" required>
                                     </div>
                                 </div>
@@ -151,6 +156,7 @@ if ($_SESSION['login'] !== true) {
 
                                 <div class="form group mt-5">
                                     <input type="hidden" value="<?php echo $Price/2;  ?>" name="advance_Payment">
+                                    <input type="hidden" value="<?php echo $Price;  ?>" name="Product_price">
                                     <input type="submit" class="btn btn-primary" name="payment" value="Click to pay: Rs. <?= $Price/2; ?>/-">
                                 </div>
 

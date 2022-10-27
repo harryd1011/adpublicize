@@ -21,7 +21,7 @@ if (isset($_POST["submit_date"])) {
 
     $check_date_row =  mysqli_num_rows($check_date);
 
-    if ($check_date_row>=20) {
+    if ($check_date_row >= 20) {
         $date_visibility = 'invisible';
         $page_visibility = 'visible';
 
@@ -389,8 +389,7 @@ if (isset($_POST["submit_date"])) {
                 $visibility_20 = 'invisible';
             }
         }
-    }
-    else {
+    } else {
         echo "<script>alert('No such publish date allotted.Please check again later.')</script>";
     }
 }
@@ -561,7 +560,7 @@ if (isset($_POST["book_btn"])) {
 
                 <div class="col-4 bg-light border">
                     <p class="justify-content-center d-flex pt-4 mt-4">
-                        Bazar Group
+                    <h3>Bazar Group</h3>
                     </p>
                 </div>
                 <div class="col-4 <?php echo "$bg_1"; ?> border">

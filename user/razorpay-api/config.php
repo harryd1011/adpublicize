@@ -17,7 +17,7 @@ if ($conn) {
     $db = mysqli_select_db($conn, "adpublicizedb");
 
     if ($db) {
-        echo "Connect";
+        // echo "Connect";
     } else {
         //echo "Not Connect";
     }
