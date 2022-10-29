@@ -20,7 +20,7 @@ if (isset($_POST["login"])) {
             $_SESSION['logadmin'] = $username;
 
             echo "<script>alert('Logged in Successfully');
-            window.location.href='page_form.php';
+            window.location.href='admin-index.php';
             </script>";
         } else {
             echo "<script>alert('Wrong password')</script>";

@@ -45,13 +45,16 @@ if ($success === true) {
     $Publish_Date = $_SESSION['Publish_Date'];
     $Content = $_SESSION['Ad_Content'];
     $page_id = $_SESSION['page_id'];
+    $Page_No = $_SESSION['Page_No'];
+    $Size = $_SESSION['Size'];
+    $Position = $_SESSION['Position'];
     $address = $_SESSION['address'];
     $pincode = $_SESSION['pincode'];
     $area = $_SESSION['area'];
     $city = $_SESSION['city'];
     $Product_price = $_SESSION['Product_price'];
 
-    $insert = mysqli_query($conn, "INSERT INTO booking_details(user_id,name,organization_name,Product_price,Payment,Publish_Date,Content,order_id,razorpay_payment_id,status)VALUES('$user_id','$name','$organization_name','$Product_price','$advance_Payment','$Publish_Date','$Content','$razorpay_order_id','$razorpay_order_id','success')");
+    $insert = mysqli_query($conn, "INSERT INTO booking_details(user_id,name,organization_name,Page_No,Size,Position,Product_price,Payment,Publish_Date,Content,order_id,razorpay_payment_id,status)VALUES('$user_id','$name','$organization_name','$Page_No','$Size','$Position','$Product_price','$advance_Payment','$Publish_Date','$Content','$razorpay_order_id','$razorpay_order_id','success')");
 
     if ($insert) {
 

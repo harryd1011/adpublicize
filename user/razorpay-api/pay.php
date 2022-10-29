@@ -41,6 +41,15 @@ $Contact_No = $_POST['contact'];
 $page_id = $_POST['page_id'];
 $_SESSION['page_id'] = $page_id;
 
+$Page_No = $_POST['Page_No'];
+$_SESSION['Page_No'] = $Page_No;
+
+$Size = $_POST['Size'];
+$_SESSION['Size'] = $Size;
+
+$Position = $_POST['Position'];
+$_SESSION['Position'] = $Position;
+
 $address = $_POST['address'];
 $_SESSION['address']= $address;
 

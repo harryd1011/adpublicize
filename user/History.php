@@ -5,6 +5,7 @@ if ($_SESSION['login'] !== true) {
         window.location.href='../login.php';
         </script>";
 }
+$history = mysqli_query($conn, "SELECT * FROM booking_details WHERE user_id='$id'");
 
 ?>
 <!DOCTYPE html>
@@ -55,19 +56,41 @@ if ($_SESSION['login'] !== true) {
     <table class="table">
         <thead>
             <tr>
-                <th scope="col" class="border">Sr.no</th>
-                <th scope="col" class="border">Name</th>
-                <th scope="col" class="border">Title</th>
+                <th scope="col" class="border">Sr. no</th>
                 <th scope="col" class="border">Name of organization</th>
-                <th scope="col" class="border">Date of booking</th>
-                <th scope="col" class="border">Rate</th>
+                <th scope="col" class="border">Content</th>
+                <th scope="col" class="border">Page_No</th>
+                <th scope="col" class="border">Size</th>
+                <th scope="col" class="border">Position</th>
+                <th scope="col" class="border">Payment</th>
+                <th scope="col" class="border">Order-Id</th>
+                <th scope="col" class="border">Payment-Id</th>
+                <th scope="col" class="border">Payment-Date</th>
                 <th scope="col" class="border">Payment status</th>
             </tr>
+            <?php
+            $i = 1;
+            while ($row = mysqli_fetch_array($history)) {
+            ?>
         </thead>
         <tbody>
             <tr>
+                <td><?php echo $i; ?></td>
+                <td><?php echo $row['organization_name']; ?></td>
+                <td><?php echo $row['Content']; ?></td>
+                <td><?php echo $row['Page_No']; ?></td>
+                <td><?php echo $row['Size']; ?></td>
+                <td><?php echo $row['Position']; ?></td>
+                <td><?php echo $row['Payment']; ?></td>
+                <td><?php echo $row['order_id']; ?></td>
+                <td><?php echo $row['razorpay_payment_id']; ?></td>
+                <td><?php echo $row['Payment_Date']; ?></td>
+                <td><?php echo $row['status']; ?></td>
 
             </tr>
+
+        <?php $i++;
+            } ?>
         </tbody>
 
     </table>

@@ -148,10 +148,10 @@ if ($_SESSION['admin_login'] !== true) {
                 <div id="collapseTwo" class="collapse list-group-item list-group-item-action second-text border" data-bs-parent="#accordion">
                     <ul class="nav flex-column">
                         <li class="nav-item ">
-                            <a class="nav-link second-text text-dark" href="page_form.php">Users Registered</a>
+                            <a class="nav-link second-text text-dark" href="registered-users.php">Users Registered</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="page_update_form.php">Confirmed bookings</a>
+                            <a class="nav-link text-dark" href="confirmed-bookings.php">Confirmed bookings</a>
                         </li>
                     </ul>
                 </div>
