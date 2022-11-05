@@ -15,12 +15,12 @@ ob_get_clean();
 $dompdf->loadHtml($html);
 
 // (Optional) Setup the paper size and orientation
-$dompdf->setPaper('A4', 'landscape');
+$dompdf->setPaper('A4', 'Portrait');
 
 // Render the HTML as PDF
 $dompdf->render();
 
 // Output the generated PDF to Browser
-$dompdf->stream('payment_receipt.pdf');
+$dompdf->stream('payment_receipt.pdf',['Attachment'=>false]);
 
 ?>

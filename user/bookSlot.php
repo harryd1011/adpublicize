@@ -11,6 +11,8 @@ if ($_SESSION['login'] !== true) {
 }
 
 // To check the slot available for the requested date
+//Submit Date selected by user
+//If the '
 if (isset($_POST["submit_date"])) {
     $Publish_Date = $_POST["Publish_Date"];
     $_SESSION['Publish_Date'] =  $Publish_Date;

@@ -97,9 +97,75 @@ if ($_SESSION['admin_login'] !== true) {
                 </div>
 
             </nav>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col table-responsive">
+                        <table class="table bg-white rounded shadow-sm table-hover table-bordered ">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sr.no</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email-id</th>
+                                    <th scope="col">Contact No.</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Office Address</th>
+                                    <th scope="col">Area</th>
+                                    <th scope="col">City</th>
+                                    <th scope="col">Pincode</th>
+                                    <th scope="col">Account Created</th>
+
+                                </tr>
+                                <?php
+                                $i = 1;
+                                while ($row = mysqli_fetch_array($fetch_users)) {
+                                    $regid= $row['regid']; //fetching user id to get communication data from communication_1 table.
+                                    $fetch_comm = mysqli_query($conn, "SELECT * FROM communication_1 where regid='$regid'");
+                                    $comm_row = mysqli_fetch_object($fetch_comm);
+                                    if($comm_row){
+                                        $address = $comm_row->resiadd;
+                                        $office_address = $comm_row->officeadd;
+                                        $area =  $comm_row->area;
+                                        $city = $comm_row->city;
+                                        $pincode = $comm_row->pincode;
+                                    }else{
+                                        $address = 'NA';
+                                        $office_address = 'NA';
+                                        $area =  'NA';
+                                        $city = 'NA';
+                                        $pincode = 'NA';
+                                    }
+                                ?>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row"><?php echo $i; ?></th>
+                                    <td><?php echo $row['fname'] .' '. $row['lname']; ?></td>
+                                    <td><?php echo $row['emailid']; ?></td>
+                                    <td><?php echo $row['contactno']; ?></td>
+                                    <td><?php echo $address; ?></td>
+                                    <td><?php echo $office_address; ?></td>
+                                    <td><?php echo $area; ?></td>
+                                    <td><?php echo $city; ?></td>
+                                    <td><?php echo $pincode; ?></td>
+                                    <td><?php echo $row['Created_at']; ?></td>
+                                </tr>
+                            <?php $i++;
+                                } ?>
+                            </tbody>
+                            
+                            </thead>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
 
-        
+
+
 
 
     </div>

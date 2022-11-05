@@ -1,5 +1,5 @@
 <?php
-include('config.php');
+include('DB_config.php');
 
 // $fname = $lname = $emailid = $password = $confirm_passwd = $contactno = "";
 if (isset($_POST["btnsubmit"])) {

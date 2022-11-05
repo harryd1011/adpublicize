@@ -18,124 +18,93 @@ require('session.php');
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="container">
-            <div class="container-fluid">
-                <div class="row mt-5">
-                    <div class="col-6">
-                        <h3>Payment Receipt</h3>
-                    </div>
-                </div>
-            </div>
-            <hr>
+
+    <h3>Payment Receipt</h3>
+
+    <hr>
 
 
-            <div class="row">
-                <div class="col-6">
-                    <table class="table table-borderless">
-                        <tbody>
-                            <tr>
-                                <th scope="row">Customer Name:</th>
-                                <td><?php echo $fname . ' ' . $lname; ?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Email Id:</th>
-                                <td><?php echo $emailid; ?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Address:</th>
-                                <td><?php echo $resiadd; ?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td><?php echo $area . ',' . $city; ?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td><?php echo $pincode; ?></td>
-                            </tr>
-                        </tbody>
 
-                    </table>
-                </div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th scope="row">Customer Name:</th>
+                <td scope= "col"><?php echo $fname . ' ' . $lname; ?></td>
+            </tr>
+            <tr>
+                <th scope="row" >Email Id:</th>
+                <td><?php echo $emailid; ?></td>
+            </tr>
+            <tr>
+                <th scope="row">Address:</th>
+                <td><?php echo $resiadd; ?></td>
+            </tr>
+            <tr>
+                <th scope="row"></th>
+                <td><?php echo $area . ',' . $city; ?></td>
+            </tr>
+            <tr>
+                <th scope="row"></th>
+                <td><?php echo $pincode; ?></td>
+            </tr>
+            <tr>
+                <th scope="row">Order Id:</th>
+                <td><?php echo $razorpay_order_id; ?></td>
+            </tr>
+            <tr>
+                <th scope="row">Payment Id:</th>
+                <td><?php echo $razorpay_payment_id; ?></td>
+            </tr>
+            <tr>
+                <th scope="row">Date of publish:</th>
+                <td><?php echo $Payment_Date; ?></td>
+            </tr>
+            <tr>
+                <th scope="row">Description</th>
+                <td><?php echo $Content;  ?></td>
+            </tr>
+            <tr>
+                <th scope="row">Rate</th>
+                <td><?php echo 'Rs. ' . $Product_price . '/-'; ?></td>
+            </tr>
+            <tr>
+                <th scope="row">Advance Payment</th>
+                <td><?php echo 'Rs. ' . $advance_Payment . '/-'; ?></td>
+            </tr>
+            <tr>
+                <th scope="row">Convenience fee</th>
+                <td>Rs. 10/-</td>
+            </tr>
+            <tr>
+                <th scope="row">Sub Total</th>
+                <td><?php echo 'Rs ' . ($advance_Payment + 10) . '/-'; ?></td>
+            </tr>
 
-                <div class="col-6">
-                    <table class="table table-borderless">
-                        <tbody>
-                            <tr>
-                                <th scope="row">Order Id:</th>
-                                <td><?php echo $razorpay_order_id; ?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Payment Id:</th>
-                                <td><?php echo $razorpay_payment_id; ?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Date of publish:</th>
-                                <td><?php echo $Payment_Date; ?></td>
-                            </tr>
+        </tbody>
 
-                        </tbody>
+    </table>
+    <hr>
 
-                    </table>
-                </div>
-            </div>
+    <h3>Admin Contact details</h3>
+    <hr>
 
-            <table class="table mt-3">
-                <thead>
-                    <tr>
-                        <th>Description</th>
-                        <th>Rate</th>
-                        <th>Advance Payment</th>
-                        <th>Convenience fee</th>
-                        <th>Sub Total</th>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th scope="row">Email : </th>
+                <td>Bazargroupad@gmail.com</td>
+            </tr>
+            <tr>
+                <th scope="row">Contact No. : </th>
+                <td>8000707909</td>
+            </tr>
+            <tr>
+                <th scope="row">Address : </th>
+                <td>Shop No.6, Sayona Tilak 1, Opp. Apollo School, New S. G. Road, Gota, Ahmedabad, 382481</td>
+            </tr>
+        </tbody>
 
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td><?php echo $Content;  ?></td>
-                        <td><?php echo 'Rs. ' . $Product_price . '/-'; ?></td>
-                        <td><?php echo 'Rs. ' . $advance_Payment . '/-'; ?></td>
-                        <td>Rs. 10/-</td>
-                        <td><?php echo 'Rs ' . ($advance_Payment + 10) . '/-'; ?></td>
-                    </tr>
-                </tbody>
-
-            </table>
-
-            <dl class="row mt-5">
-                <dt class="col-5">
-                    <h5>Contact details</h5>
-                </dt>
-
-            </dl>
-
-            <div class="row">
-                <div class="col-6">
-                    <table class="table table-borderless">
-                        <tbody>
-                            <tr>
-                                <th scope="row">Email : </th>
-                                <td>Bazargroupad@gmail.com</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Contact No. : </th>
-                                <td>8000707909</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Address : </th>
-                                <td>Shop No.6, Sayona Tilak 1, Opp. Apollo School, New S. G. Road, Gota, Ahmedabad, 382481</td>
-                            </tr>
-                        </tbody>
-
-                    </table>
-                </div>
-            </div>
-        </div>
-
-    </div>
+    </table>
 
 </body>
 

@@ -69,8 +69,10 @@ $history = mysqli_query($conn, "SELECT * FROM booking_details WHERE user_id='$id
                 <th scope="col" class="border">Payment status</th>
             </tr>
             <?php
+            //Operation performed in loop: 
             $i = 1;
             while ($row = mysqli_fetch_array($history)) {
+                //Data of specified user is derived to display.
             ?>
         </thead>
         <tbody>
