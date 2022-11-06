@@ -89,11 +89,11 @@ if ($_SESSION['admin_login'] !== true) {
 
         <!-- Sidebar ends here -->
 
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper" style="background-image: url('photos/cassi-josh-lhnOvu72BM8-unsplash.jpg'); background-size:cover;">
             <nav class="navbar navbar-expand-lg py-4 px-4">
                 <div class="d-flex align-items-center">
-                    <i class="fas fa-align-left primary-left fs-4 me-3" id="menu-toggle"></i>
-                    <h2 class="fs-2 m-0">Users Registered</h2>
+                    <i class="fas fa-align-left primary-left fs-4 me-3 bg-light" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0 bg-light">Users Registered</h2>
                 </div>
 
             </nav>

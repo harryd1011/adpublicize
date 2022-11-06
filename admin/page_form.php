@@ -114,11 +114,11 @@ if (isset($_POST["submit"])) {
 
         <!-- Sidebar ends here -->
 
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper" style="background-image: url('photos/scott-webb-sk59I1qRfEM-unsplash.jpg'); background-size:cover;">
             <nav class="navbar navbar-expand-lg py-4 px-4">
                 <div class="d-flex align-items-center">
-                    <i class="fas fa-align-left primary-left fs-4 me-3" id="menu-toggle"></i>
-                    <h2 class="fs-2 m-0">Slot Allotment Form</h2>
+                    <i class="fas fa-align-left primary-left fs-4 me-3 bg-light" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0 bg-light">Slot Allotment Form</h2>
                 </div>
 
             </nav>

@@ -179,11 +179,11 @@ if ($_SESSION['admin_login'] !== true) {
 
         <!-- Sidebar ends here -->
 
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper" style="background-image: url('photos/scott-rodgerson-lRtzEExP0H8-unsplash.jpg'); background-size:cover;">
             <nav class="navbar navbar-expand-lg py-4 px-4">
                 <div class="d-flex align-items-center">
-                    <i class="fas fa-align-left primary-left fs-4 me-3" id="menu-toggle"></i>
-                    <h2 class="fs-2 m-0">Dashboard</h2>
+                    <i class="fas fa-align-left primary-left fs-4 me-3 text-light" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0 text-light">Dashboard</h2>
                 </div>
 
             </nav>
@@ -236,7 +236,7 @@ if ($_SESSION['admin_login'] !== true) {
                 </div>
 
                 <div class="row my-5">
-                    <h3 class="fs-4 mb-3">Recent Bookings</h3>
+                    <h3 class="fs-4 mb-3 text-light">Recent Bookings</h3>
                     <div class="col">
                         <table class="table bg-white rounded shadow-sm table-hover">
                             <thead>

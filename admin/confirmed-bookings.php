@@ -9,8 +9,22 @@ if ($_SESSION['admin_login'] !== true) {
 
 if(isset($_POST["delete"])){
     $booking_id= $_POST['id'];
+    $Page_No = $_POST['Page_No'];
+    $Position = $_POST['Position'];
+    $Publish_Date = $_POST['Publish_Date'];
 
-    
+    $delete_booking =  "DELETE FROM booking_details WHERE id='$booking_id'";
+    if(mysqli_query($conn,$delete_booking)){
+
+        $update_slot = "UPDATE slot_details_1 SET Status='Available' where Page_No='$Page_No' and Position='$Position' and Publish_Date='$Publish_Date'";
+
+        if(mysqli_query($conn,$update_slot)){
+            echo "<script>alert('Operation performed successfully')</script>";
+        }
+    }
+    else{
+        echo "<script>alert('Operation Failed !')</script>";
+    }
 }
 
 
@@ -32,7 +46,7 @@ if(isset($_POST["delete"])){
 
 <body>
     <div class="d-flex" id="wrapper">
-        <div class="bg-white" id="sidebar-wrapper">
+        <div class="bg-white navbar-fixed-top" id="sidebar-wrapper">
             <div class="sidebar-heading text-center py-4 primary-text fs-3 fw-bold text-uppercase border-bottom">
                 <i class="fas fa-user-secret me-2"></i>ad-publicize
             </div>
@@ -96,11 +110,11 @@ if(isset($_POST["delete"])){
 
         <!-- Sidebar ends here -->
 
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper" style="background-image: url('photos/cassi-josh-lhnOvu72BM8-unsplash.jpg'); ">
             <nav class="navbar navbar-expand-lg py-4 px-4">
                 <div class="d-flex align-items-center">
-                    <i class="fas fa-align-left primary-left fs-4 me-3" id="menu-toggle"></i>
-                    <h2 class="fs-2 m-0">Confirmed bookings</h2>
+                    <i class="fas fa-align-left primary-left fs-4 me-3 bg-light" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0 bg-light">Confirmed bookings</h2>
                 </div>
 
             </nav>
@@ -117,7 +131,7 @@ if(isset($_POST["delete"])){
                     ?>
                         <div class="col-md-4 col-12 mt-5">
 
-                            <div class="card rounded-2">
+                            <div class="card rounded-3">
                                 <div class="card-body ">
                                     <table class="table">
                                         <thead>
@@ -179,6 +193,9 @@ if(isset($_POST["delete"])){
                                                 <form method="post">
                                                     <th scope="row">
                                                         <input type="hidden" value="<?php echo $book['id'];  ?>" name="id">
+                                                        <input type="hidden" value="<?php echo $book['Page_No'];  ?>" name="Page_No">
+                                                        <input type="hidden" value="<?php echo $book['Position'];  ?>" name="Position">
+                                                        <input type="hidden" value="<?php echo $book['Publish_Date'];  ?>" name="Publish_Date">
                                                         <button type="submit" class="btn btn-light" name="delete">
                                                             <i class="fas fa-trash-can align-left text-danger"></i>Delete
                                                         </button>
